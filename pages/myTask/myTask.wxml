@@ -1,0 +1,20 @@
+<!--pages/myTask/myTask.wxml-->
+<view class="first_tab">
+            <navigator class="item" 
+            wx:for="{{requestList}}"  
+            wx:key="index"
+            url="{{url}}{{item._id}}">
+                <!-- 左边是图片容器 暂时随便用一张图片-->
+                <view class="img_wrap">
+                    <image mode="widthFix" src="https://img.alicdn.com/tfs/TB1FjZ7VWL7gK0jSZFBXXXZZpXa-520-280.png"></image>
+                </view>
+                <!-- 右边是文字容器 -->
+                <view class="info_wrap">
+                    <view class="info_name"> {{item.title}}
+                    </view>
+                    <view class="info_desc">{{item.body}}
+                    </view>
+                    <view class="info_price">报酬: {{item.price}}元</view>
+                </view>
+            </navigator>           
+</view>

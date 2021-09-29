@@ -1,0 +1,53 @@
+<!--pages/request/request.wxml-->
+<Tabs tabs="{{tabs}}" binditemChange="handleItemChange">
+    <block wx:if="{{tabs[0].isActive}}">
+        这是委托 样式有bug 已使用云数据库 已完成分页 已完成跳转详情
+        <!-- 委托的模块 -->
+        <view class="first_tab">
+            <!-- wx:if用于过滤掉有接受人和自己发布的委托 -->
+            <navigator class="item" 
+            wx:for="{{requestList}}" 
+            wx:if="{{!item.receiver || item.publisher==userinfo.nickName}}"  
+            wx:key="index"
+            url="../../components/requestItem/requestItem?id={{item._id}}">
+                <!-- 左边是图片容器 暂时随便用一张图片-->
+                <view class="img_wrap">
+                    <image mode="widthFix" src="https://img.alicdn.com/tfs/TB1FjZ7VWL7gK0jSZFBXXXZZpXa-520-280.png"></image>
+                </view>
+                <!-- 右边是文字容器 -->
+                <view class="info_wrap">
+                    <view class="info_name"> {{item.title}}
+                    </view>
+                    <view class="info_desc">{{item.body}}
+                    </view>
+                    <view class="info_price">报酬: {{item.price}}元</view>
+                </view>
+            </navigator>           
+        </view>
+    </block>
+    <block wx:elif="{{tabs[1].isActive}}">这是问答 进度0</block>
+
+
+    <block wx:elif="{{tabs[2].isActive}}"> 
+        <view class="trade">
+            <navigator class="trade_one" url="../../components/goodsItem/goodsItem" open-type="navigate">
+            <image class="trade_two" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdpic.tiankong.com%2Fgk%2Fjs%2FQJ7116715583.jpg"></image>
+            <view class="trade_three">商品1</view>
+            </navigator>
+            </view>
+            <view>
+            <navigator class="tra../../components/goodsItem/goodsItem" open-type="navigate">
+            <image class="trade_two" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdpic.tiankong.com%2Fgk%2Fjs%2FQJ7116715583.jpg"></image>
+            <view class="trade_three">商品2</view>
+            </navigator>
+            </view>
+            <view>
+            <navigator class="tra../../components/goodsItem/goodsItem" open-type="navigate">
+                <image class="trade_two" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdpic.tiankong.com%2Fgk%2Fjs%2FQJ7116715583.jpg"></image>
+                <view class="trade_three">商品3</view>
+            </navigator>
+        </view>
+
+    </block>
+</Tabs>
+

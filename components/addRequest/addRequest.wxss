@@ -1,0 +1,41 @@
+/* components/addRequest/addRequest.wxss */
+
+.add_request{
+    padding: 20rpx;
+    background-color: #eeeeee;
+}
+
+.body_wrap{
+    background-color: white;
+    margin-top: 20rpx;
+}
+.add_img{
+    display: flex;
+    /* 换行 */
+    flex-wrap: wrap; 
+}
+.add_button{
+    margin: 0; /* 清除默认设置 */
+    display: flex;
+    height: 90rpx;
+    width: 90rpx;
+    font-size: 40rpx;
+    justify-content: center;  /* 使加号居中 */
+    align-items: center;
+    margin-left: 10rpx;   /* 靠左 */
+    margin-bottom: 10rpx;
+}
+.img_item{
+    margin-left: 10rpx;
+}
+.hidden{
+    background-color: white;
+    margin-top: 20rpx;
+    width: 100%;
+}
+input{
+    background-color: white;  
+}
+.price{
+    margin-top: 10rpx;
+}

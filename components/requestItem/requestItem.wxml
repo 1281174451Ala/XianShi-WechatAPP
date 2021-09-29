@@ -1,0 +1,36 @@
+<!--components/requestItem/requestItem.wxml-->
+<view>这是委托详情页 显示委托详情 图片有bug无法显示</view>
+<view class="background">
+    <view class="title">标题：{{requestItem.title}}</view>
+    <view class="publisher">发布人：{{requestItem.publisher}} </view>
+    <view class="body">
+      内容：{{requestItem.body}}
+    </view>
+
+    <view class="hidden">
+        <view wx:if="{{isEqual}}">
+            隐藏内容：{{requestItem.hidden}}
+        </view>
+        <view wx:else>
+            *此处为隐藏内容，接受委托后可见*
+        </view>
+    </view>
+
+    <view class="price">报酬：{{requestItem.price}}元</view>
+    <view wx:if="{{requestItem.img}}">
+        <swiper wx:for="{{requestItem.img}}" autoplay interval="2000" circular indicator-dots indicator-color="#ffffff">
+            <swiper-item>
+                <image mode="widthFix" src="{{item}}"/>
+            </swiper-item>
+         </swiper>
+    </view>
+    <view class="button_wrap">
+        <button class="button" size="mini" type="warn"
+         wx:if="{{isEqual}}" bindtap="handleGiveup">放弃委托</button>
+        <button class="button" size="mini" type="primary"
+         wx:if="{{isEqual}}" bindtap="handleGiveup">完成委托</button>
+        <button class="button" size="mini"
+        wx:else bindtap="handleReceive">接受委托</button>
+    </view>
+</view>
+

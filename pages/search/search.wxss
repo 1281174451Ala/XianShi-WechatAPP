@@ -1,0 +1,4 @@
+/* pages/search/search.wxss */
+input{
+    background-color: grey;
+}

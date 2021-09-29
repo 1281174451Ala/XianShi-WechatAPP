@@ -1,0 +1,25 @@
+<!--pages/user/user.wxml-->
+<view>这里是个人中心 目前进度：可登录 注销 发布委托 管理个人委托 </view>
+<view>发布委托 保存用户输入不能刷新 修改委托无权限</view>
+<!-- <navigator url="../login/login">登录</navigator> -->
+<view class="user_info_wrap">
+    <view wx:if="{{userinfo.avatarUrl}}" class="user_img_wrap">
+        <image class="user_bg" src="{{userinfo.avatarUrl}}"></image>
+        <view class="user_info">
+            <image class="user_icon" src="{{userinfo.avatarUrl}}"></image>
+            <view class="user_name">{{userinfo.nickName}}</view>
+        </view> 
+    </view>
+    <view wx:else class="login_button">
+        <navigator url="../login/login">登录</navigator>
+    </view>
+</view>
+<button class="logout_button" bindtap='handleLogout'>注销</button>
+<navigator wx:if="{{userinfo.avatarUrl}}" 
+url="../../components/addRequest/addRequest?id=0">发布委托</navigator>
+<navigator wx:else url="../login/login" bindtap="handleUnlog">发布委托</navigator>
+
+<navigator wx:if="{{userinfo.avatarUrl}}" url="../myTask/myTask?id={{userinfo.nickName}}&who=0">我接受的委托</navigator>
+<navigator wx:else url="../login/login" bindtap="handleUnlog">我接受的委托</navigator>
+<navigator wx:if="{{userinfo.avatarUrl}}" url="../myTask/myTask?id={{userinfo.nickName}}&who=1">我发布的委托</navigator>
+<navigator wx:else url="../login/login" bindtap="handleUnlog">我发布的委托</navigator>

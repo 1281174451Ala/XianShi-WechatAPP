@@ -1,0 +1,7 @@
+/* components/searchInput/searchInput.wxss */
+.search_input{
+    height: 100rpx;
+    padding: 10px;
+    background-color: var(--themeColor);
+    
+}

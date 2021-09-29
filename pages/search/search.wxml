@@ -1,0 +1,11 @@
+<!--pages/search/search.wxml-->
+<input type="text" bindinput="handleInput"/>
+<view>在上面输入要搜索的内容 进度0</view>
+<view>
+    <checkbox-group bindchange="handleChange">
+        <checkbox checked="{{item.default}}" wx:for="{{checkboxList}}" value="{{item.value}}" wx:key="{{item.id}}" >
+            {{item.name}}
+        </checkbox>
+    </checkbox-group>
+</view>
+

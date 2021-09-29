@@ -1,0 +1,5 @@
+<!--index.wxml-->
+<view class="xian_index">
+    <searchInput></searchInput>
+    <view>这里是首页内容 进度0</view>
+</view>

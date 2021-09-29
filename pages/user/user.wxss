@@ -1,0 +1,55 @@
+/* pages/user/user.wxss */
+.user_info_wrap{
+    position: relative;
+    height: 45vh;
+    overflow: hidden;
+    background-color: gray;
+}
+.user_info_wrap .user_bg{
+    height: 45vh;
+    width: 100%;
+    /* 高斯模糊 filter是滤镜 blur是模糊 */
+    filter: blur(10rpx);
+    position: relative;
+}
+.user_info_wrap .user_info{
+    
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  text-align: center;
+  transform: translateX(-50%);
+}
+.user_info_wrap .user_icon{
+    overflow: hidden;
+    width: 128rpx;
+    height: 128rpx;
+    border-radius: 50%;
+}
+.user_info_wrap .user_name{
+    color: white;
+    font-size: 40rpx;
+    margin: 10rpx;
+}
+.login_button{
+    position: absolute;
+    left: 40%;
+    top: 40%;
+    text-align: center;
+    border: 1rpx rgb(85, 88, 85) solid;
+    color: greenyellow;
+    font-size: 40rpx;
+    padding: 10rpx;
+    border-radius: 5rpx;
+}
+.logout_button{
+    width: 400rpx;
+    border-radius: 10rpx;
+    text-align: center;
+}
+navigator{
+    margin-top: 20rpx;
+    height: 10vh;
+    font-size: 40rpx;
+    border: 1px solid gray;
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "addImg":"../../components/addImg/addImg"
+  },
+  "navigationBarTitleText": "发布委托"
+}

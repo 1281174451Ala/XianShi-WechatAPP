@@ -1,0 +1,27 @@
+<!--components/addRequest/addRequest.wxml-->
+<view class="add_request">
+    <input class="title" type="text" 
+    placeholder="请输入标题" bindinput="getTitle" value="{{_title}}"> </input>
+    <view class="body_wrap">
+        <!-- <input maxlength="1000" class="body" type="text" placeholder="请输入内容" bindinput="getBody" value="{{_body}}"> </input>
+        <button class="delete_button">
+            <image mode="widthFix" class="delete_icon" src="../../icon/word.png"></image>
+        </button> -->
+        <textarea placeholder="请输入委托内容" bindinput="getBody" name="" id="" cols="30" rows="20" value="{{_body}}"></textarea>
+        <view class="add_img">
+            <button class="add_button" bindtap="handleAddImg">+</button>
+           <view class="img_item" wx:for="{{img}}" wx:key="*this" bindtap="handleRemoveImg" data-index="{{index}}">
+            <addImg src='{{item}}'></addImg>
+           </view>
+        </view>
+    </view>
+    <!-- <input class="hidden" type="text"placeholder="请将重要信息填写在此处" bindinput="getHidden" value="{{_hidden}}"> </input> -->
+        <textarea class="hidden" placeholder="请将重要信息填写在此处" bindinput="getHidden" value="{{_hidden}}" name="" id="" cols="30" rows="10"></textarea>
+    <input class="price" type="number"placeholder="请输入价格" bindinput="getPrice" value="{{_price}}"> </input>
+    <!-- <input type="text" placeholder="请选择委托时限"> </input> -->
+</view>
+<button wx:if="{{options==0}}" type="primary" bindtap="handlePublish">确认发布</button>
+<button wx:if="{{options==1}}" type="primary" bindtap="handleChange">修改委托</button>
+<button wx:if="{{options==1}}" type="warn" bindtap="handleDelete">删除委托</button>
+
+
