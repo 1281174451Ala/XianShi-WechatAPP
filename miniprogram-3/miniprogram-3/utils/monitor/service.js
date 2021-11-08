@@ -24,11 +24,11 @@
 class Service{
     constructor(){ 
         this.obsArr=[] //观察者列表
-        this.requestId='' //发送消息用到的委托id
+        this.id='' //发送消息用到的委托或交易id
     }
     setId(_id){ //设置id
         console.log('service.setId')
-        this.requestId=_id
+        this.id=_id
     }
     addObs(obs){ //添加观察者
         console.log('addObs')
@@ -44,10 +44,69 @@ class Service{
     notifyObservers(data){ //将变化的数据通知给所有观察者 
         console.log('sercive.notifyObservers')
         this.obsArr.forEach((v,i)=>{
-            v.update(data,this.requestId)
+            v.update(data,this.id)
         })
     }
-
+    //监听所有的对数据库的写操作
+    // //向数据库添加新数据
+    // dbAdd(db,data,log){
+    //     let that=this
+    //     return new Promise((reslove, reject) =>{
+    //         wx.cloud.database().collection(db)
+    //         .add({
+    //             data,
+    //             success(res){
+    //                 console.log(log, res)
+    //                 reslove(true)
+    //                 that.notifyObservers(data) //为被监听的函数加上父类的notifyObservers()
+    //             },
+    //             fail(res){
+    //                 console.log('添加数据失败',res)
+    //                 reslove(false)
+    //             }
+    //         })
+    //     })
+        
+    // }
+    // //根据_id删除数据库数据
+    // dbDelete(db,_id,log){
+    //     let that=this
+    //     return new Promise((reslove, reject) =>{
+    //         wx.cloud.database().collection(db).doc(_id)
+    //         .remove({
+    //         success(res){
+    //             console.log(log, res)
+    //             reslove(true)
+    //             that.notifyObservers(data)
+    //         },
+    //         fail(res){
+    //             console.log('删除数据失败',res)
+    //             reslove(false)
+    //         }
+    //     })
+    //     })
+        
+    // }
+    // //更新数据库数据
+    // dbUpdate(db,_id,data,log){
+    //     let that=this
+    //     return new Promise((reslove, reject) =>{
+    //         wx.cloud.database().collection(db).doc(_id)
+    //         .update({
+    //             data,
+    //             success(res){
+    //             console.log(log, res)
+    //             reslove(true)
+    //             that.notifyObservers(data)
+    //             },
+    //             fail(res){
+    //             console.log('删除数据失败',res)
+    //             reslove(false)
+    //             }
+    //         })
+    //     })
+        
+    // }
     //向数据库添加新数据
     dbAdd(db,data,log){
        
