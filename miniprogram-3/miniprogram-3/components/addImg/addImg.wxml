@@ -1,5 +1,0 @@
-<!--components/addImg/addImg.wxml-->
-<view class="add_img_wrap">
-    <image src="{{src}}"></image>
-    <icon type="clear" color="red"></icon>
-</view>
