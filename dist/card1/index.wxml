@@ -1,0 +1,33 @@
+<view class="i-class i-card {{ full ? 'i-card-full' : '' }}">
+    <view class="i-class i-card-header">
+        <i-row>
+            <i-col span="7" i-class="col-class">
+                <image class="i-card-thumb" src="{{ thumb }}" mode="aspectFit" wx:if="{{ thumb }}" />
+            </i-col>
+            <i-col span="15" offset="0" i-class="col-class">
+                <view>
+                    <view class="i-card-title">{{ title }}</view>
+                    <view class="i-card-extra" wx:if="{{ extra }}">{{ extra }}</view>
+                    <view class="i-card-content">
+                        <i-row>
+                            <i-col span="12" i-class="col-class">
+                                <view class=".i-card-price">￥
+                                    <text class=".i-card-price-integer">{{ integerStr }}</text>
+                                    <text class=".i-card-price-decimal">{{ decimalStr }}</text>
+                                </view>
+                            </i-col>
+                            <i-col span="10" offset="2" i-class="col-class">
+                                <view class=".i-card-other">
+                                    <van-icon name="location-o" />
+                                    {{ other }}
+                                </view>
+                            </i-col>
+                        </i-row>   
+                    </view>
+                </view>
+            </i-col>
+        </i-row> 
+
+        
+    </view>
+</view>

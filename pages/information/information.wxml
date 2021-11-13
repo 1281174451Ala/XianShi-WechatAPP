@@ -1,0 +1,39 @@
+<!--pages/information/information.wxml-->
+<view class="button_wrap">
+    <button size="mini" wx:if="{{informationList.length>0}}" bindtap="handleCheck">{{buttonText[0]}}</button>
+    <button size="mini" wx:if="{{!isHidden}}" type="primary" bindtap="handleDelete">确定</button>
+</view>
+<view wx:if="{{informationList.length==0}}">暂无消息</view>
+<view wx:if="{{!isHidden}}">
+    <checkbox-group class="first_wrap" bindchange="handleChange">
+        <checkbox hidden="{{isHidden}}"  wx:for="{{informationList}}" wx-key="{{item._id}}"  value="{{item._id}}">
+            <navigator wx:if="{{item.type}}" url="{{'../../components/requestItem/requestItem?id='+item.request_id+'&who=1'}}" class="first_information">
+    <view>
+        <view>{{item.content}}</view>
+        <view>委托名：{{item.title}} 接受人：{{item.receiver_name}}</view>
+    </view> 
+            </navigator>
+            <navigator wx:if="{{!item.type}}" url="{{'../../components/requestItem/requestItem?id='+item._id+'&who=0'}}" class="first_information">
+    <view>
+        <view>{{item.content}}</view>
+        <view>委托名：{{item.title}} 发布人：{{item.publisher_name}}</view>
+    </view>
+            </navigator>
+        </checkbox>
+    </checkbox-group>        
+</view>
+
+<view wx:if="{{isHidden}}" wx:for="{{informationList}}" wx:key="{{item._id}}">
+    <navigator bindlongpress="handleLongpress" wx:if="{{item.type}}" url="{{'../../components/requestItem/requestItem?id='+item.request_id+'&who=1'}}" class="information">
+    <view>
+        <view>{{item.content}}</view>
+        <view>委托名：{{item.title}} 接受人：{{item.receiver_name}}</view>
+    </view> 
+    </navigator>
+    <navigator bindlongpress="handleLongpress" wx:if="{{!item.type}}" url=".{{'../../components/requestItem/requestItem?id='+item.request_id+'&who=0'}}" class="information">
+    <view>
+        <view>{{item.content}}</view>
+        <view>委托名：{{item.title}} 发布人：{{item.publisher_name}}</view>
+    </view>
+    </navigator>
+</view>

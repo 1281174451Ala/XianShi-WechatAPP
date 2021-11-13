@@ -1,0 +1,22 @@
+<!--components/items.wxml-->
+<view class="first_tab">
+            <navigator class="item" 
+            wx:for="{{requestList}}"  
+            wx:key="index"
+            url="{{url}}{{item._id}}">
+                <!-- 左边是图片容器 暂时随便用一张图片-->
+                <view class="img_wrap">
+                    <image mode="widthFix" wx:if="{{item.img.length>0}}" src="{{item.img[0]}}"></image>
+                    <!-- 默认图片 -->
+                    <image mode="widthFix" src="../../icon/noPictures.png"></image>
+                </view>
+                <!-- 右边是文字容器 -->
+                <view class="info_wrap">
+                    <view class="info_name"> {{item.title}}
+                    </view>
+                    <view class="info_desc">{{item.body}}
+                    </view>
+                    <view class="info_price">报酬: {{item.price}}元</view>
+                </view>
+            </navigator>           
+</view>

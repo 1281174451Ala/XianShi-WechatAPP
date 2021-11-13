@@ -1,9 +1,8 @@
 <!--pages/user/user.wxml-->
-<view>这里是个人中心 目前进度：可登录 注销 发布委托 管理个人委托 </view>
-<view>发布委托 保存用户输入不能刷新 修改委托无权限</view>
+<!-- <view>这里是个人中心 目前进度：可登录 注销 发布委托 管理个人委托 </view> -->
 <!-- <navigator url="../login/login">登录</navigator> -->
 <view class="user_info_wrap">
-    <view wx:if="{{userinfo.avatarUrl}}" class="user_img_wrap">
+    <view wx:if="{{userinfo.openid}}" class="user_img_wrap">
         <image class="user_bg" src="{{userinfo.avatarUrl}}"></image>
         <view class="user_info">
             <image class="user_icon" src="{{userinfo.avatarUrl}}"></image>
@@ -15,11 +14,27 @@
     </view>
 </view>
 <button class="logout_button" bindtap='handleLogout'>注销</button>
-<navigator wx:if="{{userinfo.avatarUrl}}" 
-url="../../components/addRequest/addRequest?id=0">发布委托</navigator>
-<navigator wx:else url="../login/login" bindtap="handleUnlog">发布委托</navigator>
+<button bindtap="handlePublish">发布</button>
+<view wx:if="{{isPublish}}">
+    <navigator wx:if="{{userinfo.openid}}" 
+    url="../../components/addRequest/addRequest?id=-1">发布委托</navigator>
+    <navigator wx:else url="../login/login" bindtap="handleUnlog">发布委托</navigator>
+    <navigator wx:if="{{userinfo.openid}}" 
+    url="../../components/addRequest/addRequest?id=-1">发布交易</navigator>
+    <navigator wx:else url="../login/login" bindtap="handleUnlog">发布交易</navigator>
+</view>
+ <button bindtap="handleRequest">我的委托</button>
+<view wx:if="{{isRequest}}">
+    <navigator wx:if="{{userinfo.openid}}" url="../myTask/myTask?id={{userinfo.openid}}&who=0">我接受的委托</navigator>
+    <navigator wx:else url="../login/login" bindtap="handleUnlog">我接受的委托</navigator>
+    <navigator wx:if="{{userinfo.openid}}" url="../myTask/myTask?id={{userinfo.openid}}&who=1">我发布的委托</navigator>
+    <navigator wx:else url="../login/login" bindtap="handleUnlog">我发布的委托</navigator>
+</view>
+ <button bindtap="handleTrade">我的交易</button>
+<view wx:if="{{isTrade}}">
+    <navigator wx:if="{{userinfo.openid}}" url="../myTask/myTask?id={{userinfo.openid}}&who=0">我接受的交易</navigator>
+    <navigator wx:else url="../login/login" bindtap="handleUnlog">我接受的交易</navigator>
+    <navigator wx:if="{{userinfo.openid}}" url="../myTask/myTask?id={{userinfo.openid}}&who=1">我发布的交易</navigator>
+    <navigator wx:else url="../login/login" bindtap="handleUnlog">我发布的交易</navigator>
+</view>
 
-<navigator wx:if="{{userinfo.avatarUrl}}" url="../myTask/myTask?id={{userinfo.nickName}}&who=0">我接受的委托</navigator>
-<navigator wx:else url="../login/login" bindtap="handleUnlog">我接受的委托</navigator>
-<navigator wx:if="{{userinfo.avatarUrl}}" url="../myTask/myTask?id={{userinfo.nickName}}&who=1">我发布的委托</navigator>
-<navigator wx:else url="../login/login" bindtap="handleUnlog">我发布的委托</navigator>

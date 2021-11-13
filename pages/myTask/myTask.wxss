@@ -25,8 +25,22 @@
     overflow: hidden;
     /* background-color: red; */
   }
-  .info_name{
+  /* 默认的标题样式 */
+  .info_name_default{
     color: var(--themeColor);
+    font-size: 32rpx;
+    text-align: center;
+    /* 按box布局 超出部分隐藏 */
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 超出一行的文字用...代替 */
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+  /* 已接受的标题样式 颜色改为红色 */
+  .info_name_received{
+    color: red;
     font-size: 32rpx;
     text-align: center;
     /* 按box布局 超出部分隐藏 */

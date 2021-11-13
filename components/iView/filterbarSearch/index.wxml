@@ -1,0 +1,44 @@
+<!-- tabs栏 -->
+<view class="nav">
+  <!-- 第一个图标 -->
+  <view class="nav-item borders-right {{ type ? 'active' : '' }}" bindtap="onTypeActive">
+    <view class="content">{{ typeData.label }}</view>
+    <view class="icon dropdownIcon" />
+  </view>
+  <!-- 第二个图标 -->
+  <view class="nav-item borders-right {{ object ? 'active' : '' }}" bindtap="onObjectActive">
+    <view class="content">{{ objectData.label }}</view>
+    <view class="icon dropdownIcon" />
+  </view>
+</view>
+
+<!-- 筛选栏展开后的背景蒙版 -->
+<view class="mask" hidden="{{ !(type || object) }}" style="top: {{ top }}" bindtap="closeFilter" />
+
+<!-- 第一个图标对应的下拉列表，是侧边二级分类 -->
+<view class="filter {{ type ? 'show' : 'hide' }}">
+  <block wx:for="{{ typeData.children }}" wx:key="unique">
+    <view class="item {{ typeSelected === item.value ? 'active' : '' }}" data-group="{{ typeData }}" data-item="{{ item }}" bindtap="onType">{{ item.label }}</view>
+  </block>
+</view>
+
+<!-- 第二个图标对应的下拉列表，是一级分类 -->
+<view class="filter {{ object ? 'show' : 'hide' }} ">
+  <block wx:for="{{ objectData.children }}" wx:key="unique">
+    <view class="item {{ objectSelected === item.value ? 'active' : '' }}" data-group="{{ objectData }}" data-item="{{ item }}" bindtap="onObject">{{ item.label }}</view>
+  </block>
+</view>
+
+
+<wxs module="common">
+  module.exports = {
+    selected: function (multiSelected, value) {
+      for (var i = 0; i < multiSelected.length; i++) {
+        if (multiSelected[i].value === value) {
+          return true
+        }
+      }
+      return false
+    }
+  }
+</wxs>

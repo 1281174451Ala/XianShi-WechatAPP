@@ -1,0 +1,96 @@
+.i-card{
+    margin:4px 8px;
+    font-size:14px;overflow:hidden;position:relative;background:#fff;border:1rpx solid #dddee1;
+    border-radius:8px;
+}
+
+.i-card-full{margin:0;border-left:none;border-right:none;border-radius:0}
+    
+.i-card-header{
+    display:flex;
+    padding:16rpx 16rpx;
+    /* align-items:center; */
+    display:flex;/* flex布局 */
+    justify-content: center;/*水平轴线居中*/
+    align-items:center;/*垂直居中*/
+}
+
+.i-card-header-content{flex:1;text-align:left}
+
+.i-card-thumb{
+    display:inline-block;
+    width:300rpx;
+    height:300rpx;
+    position:relative;
+    margin-left:auto;
+    margin-right:auto;
+    overflow:hidden;
+    background-size:cover;
+    vertical-align:middle;
+    border-radius: 5%;
+}
+
+.i-card-title{
+    display:inline-block;
+    vertical-align:middle;
+    font-size:14px;
+    color:#1c2438;
+    /*超出一行文字自动隐藏*/
+    overflow:hidden;
+    /*文字隐藏后添加省略号*/
+    text-overflow:ellipsis;
+    /*强制不换行*/
+    white-space:nowrap; 
+    width: 280rpx; 
+}
+
+.i-card-extra{
+    flex:1;
+    text-align:left;
+    font-size:14px;
+    color:#80848f;
+    white-space:pre-line; /*强制换行，不保留空白*/
+    display: -webkit-box;
+    overflow: hidden;/*超出行数后文字自动隐藏*/
+    text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+    word-wrap: break-word;
+    /* white-space: normal !important; */
+    -webkit-line-clamp: 2;/*最多显示几行*/
+    -webkit-box-orient: vertical;
+    height: 2.8em;
+}
+
+.i-card-body{position:relative;padding:6px 16px;color:#495060;font-size:14px}.i-card-body::before{content:'';position:absolute;top:0;left:0;width:200%;height:200%;transform:scale(.5);transform-origin:0 0;pointer-events:none;box-sizing:border-box;border:0 solid #e9eaec;border-top-width:1px}.i-card-footer{position:relative;padding:6px 16px;color:#80848f;font-size:12px}
+
+.i-card-price{
+    position:relative;
+    padding:2px 2px;
+    color:#ec0000;
+    font-size:18px;
+    font-weight:bold;/*加粗*/
+    display:flex;
+    flex-wrap: wrap;
+    /* width: 230rpx;  */
+    align-items:baseline;/*n底部对齐*/
+}
+
+.i-card-price-integer{
+    font-size:18px;
+}
+
+.i-card-price-decimal{
+    font-size:14px;
+}
+
+.i-card-other{
+    position:relative;
+    /* padding:0.6em 0px;  */
+    color:#80848f;
+    font-size:12px;
+    overflow:hidden;
+    /*文字隐藏后添加省略号*/
+    text-overflow:ellipsis;
+    /*强制不换行*/
+    white-space:nowrap; 
+    /* width: 230rpx;  */
+}

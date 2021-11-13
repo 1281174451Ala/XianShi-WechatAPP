@@ -1,13 +1,18 @@
 // app.js
+let RequestObserver=require('./utils/monitor/requestObserver')
 App({
-
+  globalData:{ //全局变量
+    obs: new RequestObserver() //观察者
+  },
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch: function () {
     wx.cloud.init({
-      env:'cloud1-9g1sfb7h12c1cacf'
+      env:'cloud1-9g1sfb7h12c1cacf',
+      traceUser:true
     })
+    let obs=new RequestObserver()
   },
 
   /**

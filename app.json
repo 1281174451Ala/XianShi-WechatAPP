@@ -8,7 +8,8 @@
         "pages/user/user",
         "pages/login/login",
         "pages/myTask/myTask",
-        "components/goodsItem/goodsItem"
+        "components/tradeItem/tradeItem",
+        "pages/information/information"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -29,6 +30,12 @@
                 "pagePath": "pages/request/request",
                 "iconPath": "icon/app0.png",
                 "selectedIconPath": "icon/app.png"
+            },
+            {
+                "text": "消息",
+                "pagePath": "pages/information/information",
+                "iconPath": "icon/information0.png",
+                "selectedIconPath": "icon/information.png"
             },
             {
                 "text": "个人",

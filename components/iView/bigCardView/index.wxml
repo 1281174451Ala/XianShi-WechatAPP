@@ -1,0 +1,6 @@
+<view class="itemContainer">
+  <view class="child" bindtap="itemTap" wx:for="{{commodities[currentTab]}}" 
+    data-idx="{{index}}" wx:key="unique">
+  	<template is="itemInfoTemplate" data="{{item}}"/>
+	</view>
+</view>

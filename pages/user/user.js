@@ -5,7 +5,10 @@ Page({
      * 页面的初始数据
      */
     data: {
-        userinfo:{}
+        userinfo:{},
+        isPublish:false,
+        isRequest:false,
+        isTrade:false
     },
     //注销
     handleLogout(){
@@ -37,6 +40,23 @@ Page({
           icon:'error'
         })
     },
+    //三个按钮显示与否
+    handlePublish(){
+        this.setData({
+            isPublish:!this.data.isPublish
+        })
+    },
+    handleRequest(){
+        this.setData({
+            isRequest:!this.data.isRequest
+        })
+    },
+    handleTrade(){
+        this.setData({
+            isTrade:!this.data.isTrade
+        })
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */

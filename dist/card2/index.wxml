@@ -1,0 +1,33 @@
+<view class="i-class i-card {{ full ? 'i-card-full' : '' }}">
+    <view class="i-class i-card-header">
+        <!-- 图片 -->
+        <view>
+            <image mode="aspectFill" class="i-card-thumb" src="{{ thumb }}" wx:if="{{ thumb }}" />
+        </view>
+    </view>
+    <view class="i-class i-card-body">
+        <!-- 标题 -->
+        <view class="i-card-title">
+            {{ title }}
+        </view>
+        <!-- 内容 -->
+        <view class="i-card-extra" wx:if="{{ extra }}">
+            <view>{{ extra }}</view>
+        </view>
+        <!-- 价格 -->
+        <view class=".i-card-price">
+            ￥
+            <view class=".i-card-price-integer">
+                {{ integerStr }}
+            </view>
+            <view class=".i-card-price-decimal">
+                {{ decimalStr }}
+            </view>
+        </view>
+        <!-- 地址 -->
+        <view class=".i-card-other">
+            <van-icon name="location-o" />
+            {{ other }}
+        </view>
+    </view>
+</view>

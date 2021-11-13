@@ -1,10 +1,9 @@
 <!--components/requestItem/requestItem.wxml-->
-<view>这是委托详情页 显示委托详情 图片有bug无法显示</view>
 <view class="background">
-    <view class="title">标题：{{requestItem.title}}</view>
-    <view class="publisher">发布人：{{requestItem.publisher}} </view>
+    <view class="title">{{requestItem.title}}</view>
+    <view class="publisher">发布人：{{requestItem.publisher_name}} {{requestItem.publishTime}}</view>
     <view class="body">
-      内容：{{requestItem.body}}
+      {{requestItem.body}}
     </view>
 
     <view class="hidden">
@@ -17,20 +16,38 @@
     </view>
 
     <view class="price">报酬：{{requestItem.price}}元</view>
-    <view wx:if="{{requestItem.img}}">
-        <swiper wx:for="{{requestItem.img}}" autoplay interval="2000" circular indicator-dots indicator-color="#ffffff">
-            <swiper-item>
-                <image mode="widthFix" src="{{item}}"/>
+    <view wx:if="{{requestItem.img.length>0}}">
+        <swiper autoplay interval="2000" circular indicator-dots indicator-color="#ffffff">
+            <swiper-item wx:for="{{requestItem.img}}">
+                <!-- <image mode="widthFix" src="{{item}}"/> -->
+                <image bindtap="handleImg" mode="aspectFit" src="{{item}}"/>
             </swiper-item>
          </swiper>
     </view>
+    <view class="receiver" wx:if="{{requestItem.receiver!=''}}">接受人：{{requestItem.receiver_name}}</view>
+
     <view class="button_wrap">
         <button class="button" size="mini" type="warn"
-         wx:if="{{isEqual}}" bindtap="handleGiveup">放弃委托</button>
+         wx:if="{{who==0}}" bindtap="handleGiveup">放弃委托</button>
         <button class="button" size="mini" type="primary"
-         wx:if="{{isEqual}}" bindtap="handleGiveup">完成委托</button>
+         wx:if="{{who==0}}" bindtap="handleFinish">完成委托</button>
         <button class="button" size="mini"
-        wx:else bindtap="handleReceive">接受委托</button>
+        wx:if="{{who==-1}}" bindtap="handleReceive">接受委托</button>
+        <button class="button" size="mini" type="primary"
+        wx:if="{{who==1}}" bindtap="handleConfirm">确认委托</button>
+
+    </view>
+    <view>
+        <view class="chat_Title">评论区</view>
+        <view class="chat_wrap" wx:for="{{chatList}}" wx:key="index">
+            <view class="chat_sender">
+                <image class="chat_icon" mode="widthFix" src="{{item.avatarUrl}}"></image>
+                <view class="chat_name">{{item.sender}}：</view>
+            </view>
+            <view class="chat_content">{{item.content}}</view>
+        </view>
+        <textarea value="{{chat}}" placeholder="输入你的评论" bindinput="getChatContent" name="" id="" cols="30" rows="10"></textarea>
+        <button bindtap="handlePublish">发表评论</button>
     </view>
 </view>
 

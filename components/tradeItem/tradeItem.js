@@ -1,0 +1,72 @@
+// components/tradeItem/tradeItem.js
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        tradeItem:{}, //交易具体信息
+        chatList:[], //评论列表
+        chat:'', //用户输入评论
+        userInfo:{}, //用户信息
+        who:'-1', //判断当前操作者 0表示接收者 1 表示发布者 默认-1表示其他人 控制wxml的标签显示
+        isConfirm: false, //放弃委托前弹窗二次确认
+        // who:0 
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+
+    }
+})
